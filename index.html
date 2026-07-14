@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>תרגול ניהול ופיתוח צוותים</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">קורס ניהול ופיתוח צוותים</p>
+      <h1>מרכז תרגול אינטראקטיבי</h1>
+    </div>
+    <nav aria-label="ניווט ראשי">
+      <a href="#quiz">שאלות</a>
+      <a href="#terms">מושגים</a>
+      <a href="#scenarios">תרחישים</a>
+      <a href="materials.html">חומר מצגת</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <h2>לתרגל החלטות ניהוליות, מושגים באנגלית ויישום בצוותים אמיתיים.</h2>
+        <p>כל מושג באנגלית מופיע עם פירוש בעברית. השאלות האמריקאיות מערבבות תשובות, כך שהתשובה הארוכה ביותר אינה רמז לתשובה הנכונה.</p>
+      </div>
+      <div class="stats" aria-label="נתוני התרגול">
+        <span><strong id="questionCount">0</strong> שאלות</span>
+        <span><strong id="termCount">0</strong> מושגים</span>
+        <span><strong id="scenarioCount">0</strong> תרחישים</span>
+      </div>
+    </section>
+
+    <section id="quiz" class="panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Multiple Choice - שאלות אמריקאיות</p>
+          <h2>תרגול שאלות</h2>
+        </div>
+        <button id="resetQuiz" type="button">איפוס תרגול</button>
+      </div>
+      <div class="quiz-layout">
+        <aside class="progress-box">
+          <span>התקדמות</span>
+          <strong id="score">0 / 0</strong>
+          <div class="meter"><span id="scoreBar"></span></div>
+        </aside>
+        <div id="quizList" class="stack"></div>
+      </div>
+    </section>
+
+    <section id="terms" class="panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Glossary - מילון מושגים</p>
+          <h2>פירוש מושגים</h2>
+        </div>
+        <input id="termSearch" type="search" placeholder="חיפוש מושג בעברית או באנגלית">
+      </div>
+      <div id="termList" class="term-grid"></div>
+    </section>
+
+    <section id="scenarios" class="panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Scenario Practice - תרגול תרחישים</p>
+          <h2>מה היית עושה?</h2>
+        </div>
+      </div>
+      <div id="scenarioList" class="stack"></div>
+    </section>
+
+    <section class="panel compact">
+      <p class="eyebrow">למידה ממוקדת</p>
+      <h2>טעויות נפוצות שכדאי לזהות</h2>
+      <ul class="mistakes">
+        <li>בלבול בין <span lang="en">Management</span> - ניהול, לבין <span lang="en">Leadership</span> - מנהיגות.</li>
+        <li>הנחה שקונפליקט הוא תמיד שלילי, במקום לראות בו מקור ללמידה כשהוא מנוהל נכון.</li>
+        <li>מתן משוב כללי מדי במקום משוב התנהגותי, ספציפי ובר פעולה.</li>
+        <li>התעלמות משלב ההתפתחות של הצוות לפני בחירת סגנון הניהול.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <span>נבנה לתרגול ושיתוף ב-GitHub Pages.</span>
+    <a href="materials.html">מעבר לחומר המצגת</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
