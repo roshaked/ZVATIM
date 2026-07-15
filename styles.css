@@ -791,6 +791,42 @@ footer {
   animation: reveal 180ms ease both;
 }
 
+.slide-gallery {
+  display: grid;
+  gap: 16px;
+}
+
+.slide-image-card {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #dbe7ff;
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+}
+
+.slide-image-card figcaption {
+  justify-self: start;
+  padding: 5px 10px;
+  color: #315a9f;
+  background: #eef4ff;
+  border: 1px solid #dbe7ff;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.slide-image-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e3eaf6;
+  border-radius: 8px;
+  background: #fff;
+}
+
 .slide-frame {
   display: grid;
   gap: 14px;
