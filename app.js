@@ -306,12 +306,310 @@ const questions = [
       { text: "Project Team - צוות פרויקט, משום שמדובר בפעולה שגרתית וקבועה.", correct: false }
     ],
     explanation: "שאלת הדוח מדמה את לקח 'ניסוי הקופים': נורמה יכולה להמשיך להתקיים גם כשהסיבה המקורית כבר אינה רלוונטית."
+  },
+  {
+    topic: "תיאום צוותי",
+    question: "צוות פיתוח עובד על מוצר אחד: המאפיינת מגדירה דרישות, המפתח בונה גרסה, הבודקת מאתרת כשלים והמעצבת מכינה הדגמה ללקוח. מהו התנאי הצוותי המרכזי שבולט כאן?",
+    options: [
+      { text: "Interdependence - תלות הדדית בין תרומות החברים.", correct: true },
+      { text: "Social Comparison - השוואה חברתית בין צוותים מתחרים.", correct: false },
+      { text: "Adjourning - סיום והיפרדות של הצוות.", correct: false },
+      { text: "Objectification - החפצה של רעיון מופשט לסמל מוחשי.", correct: false }
+    ],
+    explanation: "הדוגמה מדגישה שתוצר של חבר אחד הוא תנאי להתקדמות של חבר אחר ולתוצר המשותף."
+  },
+  {
+    topic: "3E",
+    question: "בצוות יש מומחים מצוינים ומוטיבציה גבוהה, אך הרעיונות נשארים במצגות ולא הופכים לתוצרים. איזה רכיב במודל 3E חסר בעיקר?",
+    options: [
+      { text: "Execution - ביצוע.", correct: true },
+      { text: "Expertise - מומחיות.", correct: false },
+      { text: "Engagement - מעורבות.", correct: false },
+      { text: "Social Categorization - סיווג חברתי.", correct: false }
+    ],
+    explanation: "כאשר יש ידע ומעורבות אבל אין הוצאה לפועל, החוסר הוא ברכיב הביצוע."
+  },
+  {
+    topic: "3E",
+    question: "צוות חדש מגלה שהאנשים מחויבים מאוד ומבצעים מהר, אבל חסר להם ידע מקצועי בתחום המשימה. איזה רכיב במודל 3E צריך לחזק?",
+    options: [
+      { text: "Expertise - מומחיות.", correct: true },
+      { text: "Execution - ביצוע.", correct: false },
+      { text: "Engagement - מעורבות.", correct: false },
+      { text: "Cohesion - לכידות.", correct: false }
+    ],
+    explanation: "מומחיות היא רכיב הידע והיכולת המקצועית של חברי הצוות."
+  },
+  {
+    topic: "סוגי צוותים",
+    question: "ארגון מפעיל צוות קבוע במחלקת שירות שמטפל בפניות יומיומיות, מעדכן נהלים ומבצע משימות ליבה שוטפות. איזה סוג צוות מתאים ביותר?",
+    options: [
+      { text: "Organic Work Team - צוות עבודה אורגני.", correct: true },
+      { text: "Problem-Solving / Ad-hoc Team - צוות פתרון בעיה / אד-הוק.", correct: false },
+      { text: "New Product Development Team - צוות פיתוח מוצרים חדשים.", correct: false },
+      { text: "Tactical Team - צוות טקטי.", correct: false }
+    ],
+    explanation: "צוות עבודה אורגני הוא צוות קבוע למשימות שגרתיות ומתמשכות של ליבה ארגונית."
+  },
+  {
+    topic: "סוגי צוותים",
+    question: "חברי צוות נמצאים בישראל, פולין והודו, עובדים בעיקר בזום ובמסמכים משותפים, ונדרשים לתאם אזורי זמן. מה סוג הצוות?",
+    options: [
+      { text: "Virtual Team - צוות וירטואלי.", correct: true },
+      { text: "Quality Circle - חוג איכות.", correct: false },
+      { text: "Management Team - צוות ניהול.", correct: false },
+      { text: "Completer - סוגר קצוות.", correct: false }
+    ],
+    explanation: "צוות וירטואלי מוגדר בעיקר לפי עבודה מרחוק, פיזור גיאוגרפי ותקשורת דיגיטלית."
+  },
+  {
+    topic: "סוגי צוותים",
+    question: "קבוצת עובדים מהשטח נפגשת אחת לשבוע כדי לזהות תקלות חוזרות בתהליך הייצור ולהציע שיפורים קטנים. איזה סוג צוות מתואר?",
+    options: [
+      { text: "Quality Circle - חוג איכות.", correct: true },
+      { text: "Tactical Team - צוות טקטי.", correct: false },
+      { text: "Adjourning - סיום.", correct: false },
+      { text: "Resource Investigator - קשר חוץ.", correct: false }
+    ],
+    explanation: "חוג איכות מתמקד בשיפור איכות ותהליכים, לרוב באמצעות עובדים שמכירים את השטח."
+  },
+  {
+    topic: "סוגי צוותים",
+    question: "צוות רב-תחומי מקבל חופש לנסות רעיונות, לטעות בשלבי הדגירה ולפתח שירות חדש. מהו הסוג המתאים ביותר?",
+    options: [
+      { text: "New Product Development Team - צוות פיתוח מוצרים חדשים.", correct: true },
+      { text: "Organic Work Team - צוות עבודה אורגני.", correct: false },
+      { text: "Management Team - צוות ניהול.", correct: false },
+      { text: "Work Group - קבוצת עבודה.", correct: false }
+    ],
+    explanation: "צוות פיתוח מוצרים חדשים נשען על חדשנות, מומחים רב-תחומיים, גמישות וסובלנות לטעות."
+  },
+  {
+    topic: "טאקמן",
+    question: "צוות כבר עבר את שלב החיכוך, קבע כללי עבודה, החברים משתפים מידע ויש תחושת לכידות. איזה שלב במודל Tuckman - טאקמן מתאים?",
+    options: [
+      { text: "Norming - גיבוש נורמות.", correct: true },
+      { text: "Forming - גישוש.", correct: false },
+      { text: "Storming - התמודדות/סערה.", correct: false },
+      { text: "Adjourning - סיום.", correct: false }
+    ],
+    explanation: "בשלב גיבוש הנורמות מתפתחות הסכמות עבודה, לכידות וזרימת מידע."
+  },
+  {
+    topic: "טאקמן",
+    question: "הצוות פותר בעיות באופן עצמאי, החברים תלויים זה בזה בצורה בוגרת, והעיסוק המרכזי הוא השגת תוצאות. מהו השלב?",
+    options: [
+      { text: "Performing - עבודת צוות.", correct: true },
+      { text: "Forming - גישוש.", correct: false },
+      { text: "Storming - התמודדות/סערה.", correct: false },
+      { text: "Norm Relevance Gap - פער הרלוונטיות של הנורמות.", correct: false }
+    ],
+    explanation: "Performing הוא שלב ביצוע בוגר שבו הצוות מתמקד בפתרון בעיות ותלות הדדית אפקטיבית."
+  },
+  {
+    topic: "טאקמן",
+    question: "פרויקט הסתיים והצוות מתכנס להפיק לקחים, לעבד פרידה ולסגור אחריות אחרונה. איזה שלב מתואר?",
+    options: [
+      { text: "Adjourning - סיום.", correct: true },
+      { text: "Norming - גיבוש נורמות.", correct: false },
+      { text: "Forming - גישוש.", correct: false },
+      { text: "Swift Trust - אמון מהיר.", correct: false }
+    ],
+    explanation: "שלב הסיום כולל סגירה, למידה, עיבוד ופרידה."
+  },
+  {
+    topic: "זהות חברתית",
+    question: "ארגון רוצה לבנות זהות צוותית חיובית בלי לעודד זלזול בצוותים אחרים. איזו פעולה מתאימה ביותר?",
+    options: [
+      { text: "להגדיר גאווה פנימית סביב ערך מקצועי והתקדמות ביחס לעצמם.", correct: true },
+      { text: "להדגיש שהצוות טוב יותר מכל מחלקה אחרת בכל הזדמנות.", correct: false },
+      { text: "לבטל כל הבחנה בין צוותים כדי שלא תיווצר שייכות.", correct: false },
+      { text: "להחליף את כל חברי הצוות בכל פעם שמתעורר קונפליקט.", correct: false }
+    ],
+    explanation: "זהות חברתית חיובית יכולה להיבנות סביב משמעות וערך פנימי, ולא רק סביב השוואה שמפלגת."
+  },
+  {
+    topic: "זהות חברתית",
+    question: "עובדת חדשה אומרת: 'כשאני בצוות הזה אני מרגישה שזה אומר עליי משהו מקצועי וערכי'. איזה מרכיב בזהות החברתית מודגש?",
+    options: [
+      { text: "משמעות ערכית ורגשית של ההשתייכות.", correct: true },
+      { text: "רק חלוקת תקציב בין מחלקות.", correct: false },
+      { text: "רק התפקיד הפורמלי שמופיע בחוזה העבודה.", correct: false },
+      { text: "רק מספר האנשים בצוות.", correct: false }
+    ],
+    explanation: "החומר מציג זהות חברתית כתפיסת עצמי כחלק מקבוצה עם משמעות רגשית וערכית."
+  },
+  {
+    topic: "ייצוגים חברתיים",
+    question: "צוות מתקשה להבין מושג חדש, עד שמישהו משווה אותו ל'מצפן' שמכוון החלטות. איזה תהליך מתרחש?",
+    options: [
+      { text: "Objectification - החפצה.", correct: true },
+      { text: "Adjourning - סיום.", correct: false },
+      { text: "Execution - ביצוע.", correct: false },
+      { text: "Shaper - דוחף להחלטות.", correct: false }
+    ],
+    explanation: "החפצה הופכת רעיון מופשט לדימוי מוחשי שקל לשתף ולזכור."
+  },
+  {
+    topic: "ייצוגים חברתיים",
+    question: "צוות מקבל רעיון חדש ומסביר אותו דרך דוגמה מוכרת מהעבר שלו. איזה תהליך בייצוג חברתי מתאים?",
+    options: [
+      { text: "Anchoring - עיגון.", correct: true },
+      { text: "Cohesion - לכידות.", correct: false },
+      { text: "Monitor-Evaluator - מנתח.", correct: false },
+      { text: "Performing - עבודת צוות.", correct: false }
+    ],
+    explanation: "עיגון מחבר דבר חדש למסגרת מוכרת כדי להפוך אותו למובן."
+  },
+  {
+    topic: "לכידות וביקורת",
+    question: "צוות מלוכד מאוד רוצה לשמור על אווירה טובה ולכן נמנע מלהעלות סיכונים. איזה שילוב כדאי לחזק?",
+    options: [
+      { text: "Psychological Safety - ביטחון פסיכולוגי יחד עם ביקורת עניינית.", correct: true },
+      { text: "רק Cohesion - לכידות, בלי מחלוקות כלל.", correct: false },
+      { text: "רק Social Comparison - השוואה חברתית מול צוותים אחרים.", correct: false },
+      { text: "רק Adjourning - סיום מיידי של הצוות.", correct: false }
+    ],
+    explanation: "החומר מדגיש שלכידות לבדה אינה מספיקה; צריך לאפשר דיבור על טעויות וספקות."
+  },
+  {
+    topic: "בלבין",
+    question: "בצוות יש הרבה Plant - רעיונות ו-Monitor-Evaluator - מנתח, אבל אף אחד לא הופך החלטות לתוכנית עבודה. איזה תפקיד חסר בעיקר?",
+    options: [
+      { text: "Implementer - מבצע.", correct: true },
+      { text: "Specialist - מומחה.", correct: false },
+      { text: "Resource Investigator - קשר חוץ.", correct: false },
+      { text: "Social Identification - הזדהות חברתית.", correct: false }
+    ],
+    explanation: "Implementer - מבצע, מתרגם רעיונות ותוכניות לעבודה מעשית."
+  },
+  {
+    topic: "בלבין",
+    question: "חבר צוות יוצר קשרים עם גורמים מחוץ לצוות, מביא מידע ומשאבים ופותח אפשרויות. איזה תפקיד בלבין מתאים?",
+    options: [
+      { text: "Resource Investigator - קשר חוץ.", correct: true },
+      { text: "Completer - סוגר קצוות.", correct: false },
+      { text: "Teamworker - מגשר ותומך.", correct: false },
+      { text: "Norming - גיבוש נורמות.", correct: false }
+    ],
+    explanation: "Resource Investigator אחראי על חיבור לסביבה, קשרים, מידע ומשאבים."
+  },
+  {
+    topic: "בלבין",
+    question: "שני חברים דוחפים כל הזמן להכרעות ומתנגשים על ההובלה. איזה תפקיד כנראה מופיע בעודף?",
+    options: [
+      { text: "Shaper - דוחף להחלטות.", correct: true },
+      { text: "Completer - סוגר קצוות.", correct: false },
+      { text: "Teamworker - מגשר ותומך.", correct: false },
+      { text: "Specialist - מומחה.", correct: false }
+    ],
+    explanation: "החומר מציין שגם עודף תפקידים מסוימים, למשל שני Shapers, עלול לפגוע בתפקוד."
+  },
+  {
+    topic: "ביילס",
+    question: "במהלך דיון, מאיה אומרת: 'רגע, כולם לחוצים. בואו ניתן לעידן להשלים את המשפט'. לפי Bales - ביילס, איזו תרומה זו?",
+    options: [
+      { text: "תרומה ליחסים.", correct: true },
+      { text: "תרומה טכנית למשימה בלבד.", correct: false },
+      { text: "סיווג חברתי.", correct: false },
+      { text: "החפצה.", correct: false }
+    ],
+    explanation: "ביילס מבחין בין תרומה למשימה לבין תרומה ליחסים כמו תמיכה, גישור ושחרור מתח."
+  },
+  {
+    topic: "ביילס",
+    question: "יוסי אומר: 'יש לי נתונים מדוח הלמ״ס שיכולים לתמוך בטענה'. לפי Bales - ביילס, זו בעיקר:",
+    options: [
+      { text: "תרומה למשימה.", correct: true },
+      { text: "תרומה ליחסים בלבד.", correct: false },
+      { text: "Adjourning - סיום.", correct: false },
+      { text: "Norm Relevance Gap - פער הרלוונטיות של הנורמות.", correct: false }
+    ],
+    explanation: "מתן מידע, הצעת רעיון ובקשת דעה הן דוגמאות לתרומה למשימה."
+  },
+  {
+    topic: "האריסון",
+    question: "בתרגיל Harrison - האריסון, חבר צוות כותב לעמית: 'להמשיך להביא נתונים, פחות לקטוע אחרים, יותר לשאול מי לא דיבר'. מה מטרת התרגיל?",
+    options: [
+      { text: "להפוך ציפיות סמויות לחוזה ציפיות מדובר.", correct: true },
+      { text: "לקבוע דירוג אישי סופי של חברי הצוות.", correct: false },
+      { text: "להחליף את שלבי טאקמן.", correct: false },
+      { text: "ליצור צוות וירטואלי.", correct: false }
+    ],
+    explanation: "גישת יותר/פחות/להמשיך משמשת לשיחה על ציפיות באופן גלוי ומעשי."
+  },
+  {
+    topic: "נורמות",
+    question: "חבר חדש מציע לשנות שיטה ישנה. הוותיקים אומרים שאין סיבה טובה, אבל 'כולם יודעים שלא עושים את זה'. מה כדאי למנהל לעשות לפי החומר?",
+    options: [
+      { text: "לחשוף את הנורמה הסמויה ולשאול האם היא עדיין משרתת מטרה.", correct: true },
+      { text: "להעניש מיד את החבר החדש כי הפר נורמה קיימת.", correct: false },
+      { text: "להתעלם, כי נורמות תמיד יעילות אם הן ותיקות.", correct: false },
+      { text: "לבטל כל נורמה בצוות בלי אבחון.", correct: false }
+    ],
+    explanation: "פער הרלוונטיות של הנורמות מחייב לבדוק אם כלל ישן עדיין רלוונטי או רק נשמר מכוח ההרגל."
+  },
+  {
+    topic: "השוואה בין מודלים",
+    question: "מנהל רוצה להבין למה חברי צוות מתנגשים בגלל נטיות תפקיד שונות. באיזו עדשה כדאי להתחיל?",
+    options: [
+      { text: "Belbin - בלבין.", correct: true },
+      { text: "Harrison - האריסון בלבד, כי הוא לא עוסק בתפקידים.", correct: false },
+      { text: "Adjourning - סיום.", correct: false },
+      { text: "Objectification - החפצה.", correct: false }
+    ],
+    explanation: "בלבין עוזר לאבחן תפקידי צוות, חוסרים ועודפים בתמהיל התפקידים."
+  },
+  {
+    topic: "השוואה בין מודלים",
+    question: "מנהל רוצה לצפות בפגישה אחת ולהבין מי תורם למשימה ומי תומך ביחסים בזמן אמת. באיזו עדשה יש להשתמש?",
+    options: [
+      { text: "Bales - ביילס.", correct: true },
+      { text: "Tuckman - טאקמן בלבד.", correct: false },
+      { text: "Social Categorization - סיווג חברתי.", correct: false },
+      { text: "Swift Trust - אמון מהיר.", correct: false }
+    ],
+    explanation: "ביילס מתמקד בהתנהגויות ברגע נתון ולא בתיוג קבוע של אדם."
+  },
+  {
+    topic: "סגנון מבחן",
+    question: "מה מהבאים מתאר מצב שבו לכידות גבוהה עלולה להפוך לסיכון?",
+    options: [
+      { text: "הצוות מסכים מהר, נמנע מביקורת, ודוחה מידע שסותר את ההחלטה.", correct: true },
+      { text: "הצוות מאפשר דעות שונות ומעודד הצגת חלופות לפני החלטה.", correct: false },
+      { text: "הצוות מגדיר תפקידים ברורים ומנגנוני תיאום.", correct: false },
+      { text: "הצוות מסיים פרויקט ומפיק לקחים.", correct: false }
+    ],
+    explanation: "לכידות גבוהה בלי ביטחון פסיכולוגי וביקורתיות עלולה להוביל ל-Groupthink - חשיבת קבוצה."
+  },
+  {
+    topic: "סגנון מבחן",
+    question: "איזו דוגמה מתאימה ביותר ל-Swift Trust - אמון מהיר?",
+    options: [
+      { text: "צוות מנתחים/טייסים/כוחות חירום שסומך על מקצועיות ותפקידים ברורים בזמן קצר.", correct: true },
+      { text: "קבוצת חברים ותיקה שנפגשת בלי משימה מוגדרת.", correct: false },
+      { text: "צוות שמפתח זהות חברתית לאורך שנים רק דרך אירועי גיבוש.", correct: false },
+      { text: "מחלקה שממשיכה נוהל ישן כי 'ככה עושים פה'.", correct: false }
+    ],
+    explanation: "אמון מהיר אופייני לצוותים טקטיים שבהם המקצועיות והתפקידים מאפשרים פעולה מיידית."
+  },
+  {
+    topic: "סגנון מבחן",
+    question: "צוות נמצא בשלב Storming - התמודדות/סערה וחסר בו מי שירגיע מתחים ויגשר. איזה תפקיד בלבין עשוי לעזור במיוחד?",
+    options: [
+      { text: "Teamworker - מגשר ותומך.", correct: true },
+      { text: "Plant - רעיונות בלבד.", correct: false },
+      { text: "Specialist - מומחה בלבד.", correct: false },
+      { text: "Resource Investigator - קשר חוץ בלבד.", correct: false }
+    ],
+    explanation: "בשלב של קונפליקט לא מוכרע, Teamworker יכול לתמוך ביחסים ולשחרר מתחים."
   }
 ];
 
 const terms = [
   { en: "Team", he: "צוות", source: "materials.html#team", sourceNote: "זהות חברתית, שקופית 3", note: "קבוצת אנשים עם תלות הדדית, מטרה משותפת, הכרה כיחידה מובחנת, אחריות ומנגנוני תיאום." },
   { en: "Work Group", he: "קבוצת עבודה", source: "materials.html#group-vs-team", sourceNote: "זהות חברתית, שקופית 2", note: "קבוצה שבה המטלות ברות חלוקה והאחריות לרוב אישית וממוקדת בראש." },
+  { en: "Interdependence", he: "תלות הדדית", source: "materials.html#team", sourceNote: "זהות חברתית, שקופית 3", note: "מצב שבו חברי הצוות תלויים זה בתוצריו של זה כדי להשיג את המטרה המשותפת." },
   { en: "Synergy", he: "סינרגיה", source: "materials.html#synergy", sourceNote: "זהות חברתית, שקופית 4", note: "מצב שבו תפוקת הצוות המלוכד גבוהה ואיכותית מסכום תפוקות הפרטים." },
   { en: "Expertise", he: "מומחיות", source: "materials.html#three-e", sourceNote: "זהות חברתית, שקופית 4", note: "רכיב 3E: אנשים מוכשרים ומומחים בתחומם." },
   { en: "Engagement", he: "מעורבות", source: "materials.html#three-e", sourceNote: "זהות חברתית, שקופית 4", note: "רכיב 3E: מוטיבציה ומחויבות אמיתיות של חברי הצוות." },
