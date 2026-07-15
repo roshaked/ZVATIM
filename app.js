@@ -738,7 +738,7 @@ const state = {
 const topicModules = [
   {
     id: "groups-teams",
-    object: "Employee Files",
+    object: "תיקי עובדים",
     title: "קבוצה מול צוות",
     cue: "תיקי עובדים",
     topics: ["הגדרת צוות", "קבוצה לעומת צוות", "סינרגיה"],
@@ -748,7 +748,7 @@ const topicModules = [
   },
   {
     id: "team-building",
-    object: "Puzzle Board",
+    object: "לוח פאזל",
     title: "בניית צוות ותפקידי צוות",
     cue: "לוח פאזל",
     topics: ["בלבין", "תפקידי צוות", "תקיעות צוותית", "השוואה בין מודלים"],
@@ -758,7 +758,7 @@ const topicModules = [
   },
   {
     id: "development",
-    object: "Whiteboard",
+    object: "לוח ישיבות",
     title: "שלבי התפתחות צוות",
     cue: "לוח ישיבות",
     topics: ["טאקמן"],
@@ -768,7 +768,7 @@ const topicModules = [
   },
   {
     id: "effective-teams",
-    object: "Light Bulb",
+    object: "מנורת החלטות",
     title: "צוותים אפקטיביים",
     cue: "מנורת החלטות",
     topics: ["3E", "לכידות וביטחון", "Groupthink", "לכידות וביקורת"],
@@ -778,7 +778,7 @@ const topicModules = [
   },
   {
     id: "virtual-types",
-    object: "Laptop",
+    object: "עמדת עבודה",
     title: "סוגי צוותים וצוותים וירטואליים",
     cue: "עמדת עבודה מרחוק",
     topics: ["סוגי צוותים"],
@@ -788,7 +788,7 @@ const topicModules = [
   },
   {
     id: "identity",
-    object: "Manager Badge",
+    object: "תג מנהל",
     title: "זהות, נורמות וייצוגים חברתיים",
     cue: "תג מנהל",
     topics: ["זהות חברתית", "יצירת זהות", "ייצוג חברתי", "ייצוגים חברתיים", "נורמות"],
@@ -798,7 +798,7 @@ const topicModules = [
   },
   {
     id: "evaluation",
-    object: "Analytics Dashboard",
+    object: "לוח אנליטיקה",
     title: "אבחון והערכת צוות",
     cue: "לוח אנליטיקה",
     topics: ["ביילס", "האריסון", "תיאום צוותי", "סגנון מבחן"],
@@ -834,7 +834,7 @@ function updateScore() {
   quizAverage.textContent = `${answeredScore}%`;
   examReadiness.textContent = readiness >= 85 ? "מוכן" : readiness >= 60 ? "מתקדם" : "בדרך";
   decisionFeedback.textContent = answered
-    ? `${answered} שאלות נענו. ${answeredScore >= 80 ? "Excellent Decision - החלטות מצוינות." : "המשיכו לתרגל כדי לחזק מוכנות."}`
+    ? `${answered} שאלות נענו. ${answeredScore >= 80 ? "החלטות מצוינות." : "המשיכו לתרגל כדי לחזק מוכנות."}`
     : "ענו על שאלות כדי לקבל מדד מוכנות.";
 }
 
@@ -873,7 +873,7 @@ function renderActiveTopic(moduleId = topicModules[0].id) {
   topicExample.textContent = module.example;
   topicLearn.innerHTML = module.learn.map((line) => `<div>${line}</div>`).join("");
   markTopicComplete.dataset.topicId = module.id;
-  markTopicComplete.textContent = state.completedTopics.has(module.id) ? "Topic Completed - הושלם" : "סימון נושא כהושלם";
+  markTopicComplete.textContent = state.completedTopics.has(module.id) ? "הנושא הושלם" : "סימון נושא כהושלם";
 
   const selectedQuestions = moduleQuestions(module).slice(0, 3);
   topicPractice.innerHTML = "";
