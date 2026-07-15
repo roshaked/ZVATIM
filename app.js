@@ -743,7 +743,11 @@ const topicModules = [
     cue: "תיקי עובדים",
     topics: ["הגדרת צוות", "קבוצה לעומת צוות", "סינרגיה"],
     scenario: "במייל מהמרצה נכתב: ארבעה סטודנטים חילקו ביניהם עבודה, אבל אין מטרה משותפת ואין אחריות משותפת לתוצר. האם זו קבוצה או צוות?",
-    learn: ["Team - צוות דורש תלות הדדית, מטרה משותפת, תיאום ואחריות משותפת.", "Work Group - קבוצת עבודה יכולה לכלול משימות מחולקות ואחריות אישית.", "Synergy - סינרגיה מופיעה כשעבודת הצוות יוצרת ערך גבוה מסכום התרומות האישיות."],
+    learn: [
+      { text: "Team - צוות דורש תלות הדדית, מטרה משותפת, תיאום ואחריות משותפת.", source: "materials.html#team" },
+      { text: "Work Group - קבוצת עבודה יכולה לכלול משימות מחולקות ואחריות אישית.", source: "materials.html#group-vs-team" },
+      { text: "Synergy - סינרגיה מופיעה כשעבודת הצוות יוצרת ערך גבוה מסכום התרומות האישיות.", source: "materials.html#synergy" }
+    ],
     example: "במחלקת שירות, אם כל נציג מטפל בפנייה נפרדת בלי תלות באחרים זו קבוצת עבודה. אם כולם תלויים זה בזה כדי לסגור חוויית לקוח אחת, זו עבודת צוות."
   },
   {
@@ -753,7 +757,11 @@ const topicModules = [
     cue: "לוח פאזל",
     topics: ["בלבין", "תפקידי צוות", "תקיעות צוותית", "השוואה בין מודלים"],
     scenario: "בפגישה יש הרבה רעיונות, אבל אף החלטה לא הופכת לתוכנית עבודה. כולם מוכשרים, ועדיין התוצר תקוע.",
-    learn: ["Belbin - בלבין מדגיש תמהיל מאוזן של תפקידים משלימים.", "חוסר בתפקיד כמו Implementer - מבצע או Completer - סוגר קצוות עלול לתקוע צוות.", "לא מספיק לאסוף אנשים חזקים; צריך לבדוק מה חסר לצוות כיחידה."],
+    learn: [
+      { text: "Belbin - בלבין מדגיש תמהיל מאוזן של תפקידים משלימים.", source: "materials.html#belbin" },
+      { text: "חוסר בתפקיד כמו Implementer - מבצע או Completer - סוגר קצוות עלול לתקוע צוות.", source: "materials.html#stuck-team" },
+      { text: "לא מספיק לאסוף אנשים חזקים; צריך לבדוק מה חסר לצוות כיחידה.", source: "materials.html#belbin" }
+    ],
     example: "בצוות מוצר יש Plant - רעיונות ו-Monitor-Evaluator - מנתח, אבל בלי Implementer - מבצע אין תרגום לתוכנית פעולה."
   },
   {
@@ -763,7 +771,11 @@ const topicModules = [
     cue: "לוח ישיבות",
     topics: ["טאקמן"],
     scenario: "צוות חדש מתחיל להתווכח על סמכויות, סדרי עדיפויות ודרך עבודה. התחושה בחדר מתוחה.",
-    learn: ["Tuckman - טאקמן מתאר התפתחות דרך Forming, Storming, Norming, Performing ו-Adjourning.", "Storming - התמודדות/סערה אינו כישלון אלא שלב טבעי של בירור גבולות והשפעה.", "תפקיד המנהל משתנה לפי שלב ההתפתחות של הצוות."],
+    learn: [
+      { text: "Tuckman - טאקמן מתאר התפתחות דרך Forming, Storming, Norming, Performing ו-Adjourning.", source: "materials.html#tuckman" },
+      { text: "Storming - התמודדות/סערה אינו כישלון אלא שלב טבעי של בירור גבולות והשפעה.", source: "materials.html#tuckman" },
+      { text: "תפקיד המנהל משתנה לפי שלב ההתפתחות של הצוות.", source: "materials.html#tuckman" }
+    ],
     example: "ראש צוות שמזהה Storming - התמודדות/סערה לא מפרק את הצוות מיד, אלא מבהיר תפקידים, ציפיות וכללי החלטה."
   },
   {
@@ -773,7 +785,11 @@ const topicModules = [
     cue: "מנורת החלטות",
     topics: ["3E", "לכידות וביטחון", "Groupthink", "לכידות וביקורת"],
     scenario: "הצוות מלא מוטיבציה ורעיונות, אבל הרעיונות נשארים במצגות ולא הופכים לתוצר.",
-    learn: ["מודל 3E כולל Expertise - מומחיות, Engagement - מעורבות ו-Execution - ביצוע.", "Cohesion - לכידות מחברת את הצוות, אך Psychological Safety - ביטחון פסיכולוגי מאפשר גם ביקורת ולמידה.", "Groupthink - חשיבת קבוצה עלול להופיע כאשר הרצון להסכמה מדכא חלופות."],
+    learn: [
+      { text: "מודל 3E כולל Expertise - מומחיות, Engagement - מעורבות ו-Execution - ביצוע.", source: "materials.html#three-e" },
+      { text: "Cohesion - לכידות מחברת את הצוות, אך Psychological Safety - ביטחון פסיכולוגי מאפשר גם ביקורת ולמידה.", source: "materials.html#psychological-safety" },
+      { text: "Groupthink - חשיבת קבוצה עלול להופיע כאשר הרצון להסכמה מדכא חלופות.", source: "materials.html#stuck-team" }
+    ],
     example: "צוות שמסכים מהר מדי בלי לשאול שאלות נראה יעיל, אבל מנהל טוב בודק אם יש ביטחון להביע ספק."
   },
   {
@@ -783,7 +799,11 @@ const topicModules = [
     cue: "עמדת עבודה מרחוק",
     topics: ["סוגי צוותים"],
     scenario: "חברי צוות נמצאים בישראל, פולין והודו, עובדים בזום ובמסמכים משותפים, ומתאמים אזורי זמן.",
-    learn: ["Virtual Team - צוות וירטואלי מוגדר סביב עבודה מרחוק ותקשורת דיגיטלית.", "Project Team - צוות פרויקט מתאים ליעד מוגדר בזמן ובתקציב.", "Problem-Solving / Ad-hoc Team - צוות פתרון בעיה / אד-הוק מתאים למענה מהיר לבעיה לא צפויה."],
+    learn: [
+      { text: "Virtual Team - צוות וירטואלי מוגדר סביב עבודה מרחוק ותקשורת דיגיטלית.", source: "materials.html#team-types" },
+      { text: "Project Team - צוות פרויקט מתאים ליעד מוגדר בזמן ובתקציב.", source: "materials.html#team-types" },
+      { text: "Problem-Solving / Ad-hoc Team - צוות פתרון בעיה / אד-הוק מתאים למענה מהיר לבעיה לא צפויה.", source: "materials.html#team-types" }
+    ],
     example: "תקלה חד-פעמית אצל לקוח תדרוש צוות אד-הוק; פיתוח מוצר לאורך חודשים מתאים יותר לצוות פרויקט או צוות פיתוח מוצרים חדשים."
   },
   {
@@ -793,7 +813,11 @@ const topicModules = [
     cue: "תג מנהל",
     topics: ["זהות חברתית", "יצירת זהות", "ייצוג חברתי", "ייצוגים חברתיים", "נורמות"],
     scenario: "עובדת חדשה אומרת: כשאני בצוות הזה אני מרגישה שזה אומר עליי משהו מקצועי וערכי.",
-    learn: ["Social Identity - זהות חברתית היא תפיסת העצמי כחלק מקבוצה עם משמעות רגשית וערכית.", "Social Representation - ייצוג חברתי יוצר משמעות משותפת שמארגנת הבנה והתנהגות.", "Anchoring - עיגון ו-Objectification - החפצה עוזרים להפוך רעיון מופשט למובן משותף."],
+    learn: [
+      { text: "Social Identity - זהות חברתית היא תפיסת העצמי כחלק מקבוצה עם משמעות רגשית וערכית.", source: "materials.html#social-identity" },
+      { text: "Social Representation - ייצוג חברתי יוצר משמעות משותפת שמארגנת הבנה והתנהגות.", source: "materials.html#social-representation" },
+      { text: "Anchoring - עיגון ו-Objectification - החפצה עוזרים להפוך רעיון מופשט למובן משותף.", source: "materials.html#social-representation" }
+    ],
     example: "כשצוות מתאר את הערך שלו כ'מצפן החלטות', הוא הופך רעיון מופשט לדימוי מוחשי שמכוון פעולה."
   },
   {
@@ -803,7 +827,11 @@ const topicModules = [
     cue: "לוח אנליטיקה",
     topics: ["ביילס", "האריסון", "תיאום צוותי", "סגנון מבחן"],
     scenario: "מנהל רוצה להבין בזמן פגישה מי תורם למשימה, מי מחזיק את היחסים, ומה הצוות צריך לשפר.",
-    learn: ["Bales - ביילס בוחן התנהגות בזמן אמת: תרומה למשימה ותרומה ליחסים.", "Harrison - האריסון הופך ציפיות סמויות לגלויות דרך יותר / פחות / להמשיך.", "הערכה טובה מחברת בין תצפית, מושגים מהחומר ותרגול החלטות."],
+    learn: [
+      { text: "Bales - ביילס בוחן התנהגות בזמן אמת: תרומה למשימה ותרומה ליחסים.", source: "materials.html#bales" },
+      { text: "Harrison - האריסון הופך ציפיות סמויות לגלויות דרך יותר / פחות / להמשיך.", source: "materials.html#harrison" },
+      { text: "הערכה טובה מחברת בין תצפית, מושגים מהחומר ותרגול החלטות.", source: "materials.html#bales" }
+    ],
     example: "אם משתתף מביא נתונים זו תרומה למשימה; אם משתתפת מרגיעה מתח ונותנת מקום לאחרים זו תרומה ליחסים."
   }
 ];
@@ -871,7 +899,16 @@ function renderActiveTopic(moduleId = topicModules[0].id) {
   activeTopicTitle.textContent = module.title;
   topicScenario.textContent = module.scenario;
   topicExample.textContent = module.example;
-  topicLearn.innerHTML = module.learn.map((line) => `<div>${line}</div>`).join("");
+  topicLearn.innerHTML = module.learn.map((item) => {
+    const text = typeof item === "string" ? item : item.text;
+    const source = typeof item === "string" ? "materials.html#source-files" : item.source;
+    return `
+      <div class="learn-item">
+        <span>${text}</span>
+        <a class="source-pill" href="${source}">פתיחה במקור</a>
+      </div>
+    `;
+  }).join("");
   markTopicComplete.dataset.topicId = module.id;
   markTopicComplete.textContent = state.completedTopics.has(module.id) ? "הנושא הושלם" : "סימון נושא כהושלם";
 

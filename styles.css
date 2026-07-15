@@ -429,12 +429,50 @@ footer {
   gap: 8px;
 }
 
-.learning-cards div,
+.learning-cards > div,
 .practice-item {
   padding: 12px;
   background: #f8fafc;
   border: 1px solid var(--line);
   border-radius: 8px;
+}
+
+.learn-item {
+  display: grid;
+  gap: 10px;
+}
+
+.source-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid #d7e2f4;
+  border-radius: 8px;
+  color: #1d4ed8;
+  background: #fff;
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.source-pill::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  margin-inline-end: 7px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  opacity: 0.72;
+}
+
+.source-pill:hover {
+  border-color: #b9ccff;
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
 }
 
 .mini-practice {
@@ -834,6 +872,7 @@ footer {
   button,
   .term-card a,
   .source-links a,
+  .source-pill,
   .primary-action,
   .secondary-action {
     min-height: 46px;
