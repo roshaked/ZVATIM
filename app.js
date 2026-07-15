@@ -717,10 +717,96 @@ const termList = document.querySelector("#termList");
 const scenarioList = document.querySelector("#scenarioList");
 const score = document.querySelector("#score");
 const scoreBar = document.querySelector("#scoreBar");
+const decisionFeedback = document.querySelector("#decisionFeedback");
+const topicObjects = document.querySelector("#topicObjects");
+const activeTopicTitle = document.querySelector("#activeTopicTitle");
+const topicScenario = document.querySelector("#topicScenario");
+const topicLearn = document.querySelector("#topicLearn");
+const topicExample = document.querySelector("#topicExample");
+const topicPractice = document.querySelector("#topicPractice");
+const markTopicComplete = document.querySelector("#markTopicComplete");
+const topicProgress = document.querySelector("#topicProgress");
+const readinessScore = document.querySelector("#readinessScore");
+const quizAverage = document.querySelector("#quizAverage");
+const examReadiness = document.querySelector("#examReadiness");
 
 const state = {
-  answered: new Map()
+  answered: new Map(),
+  completedTopics: new Set()
 };
+
+const topicModules = [
+  {
+    id: "groups-teams",
+    object: "Employee Files",
+    title: "קבוצה מול צוות",
+    cue: "תיקי עובדים",
+    topics: ["הגדרת צוות", "קבוצה לעומת צוות", "סינרגיה"],
+    scenario: "במייל מהמרצה נכתב: ארבעה סטודנטים חילקו ביניהם עבודה, אבל אין מטרה משותפת ואין אחריות משותפת לתוצר. האם זו קבוצה או צוות?",
+    learn: ["Team - צוות דורש תלות הדדית, מטרה משותפת, תיאום ואחריות משותפת.", "Work Group - קבוצת עבודה יכולה לכלול משימות מחולקות ואחריות אישית.", "Synergy - סינרגיה מופיעה כשעבודת הצוות יוצרת ערך גבוה מסכום התרומות האישיות."],
+    example: "במחלקת שירות, אם כל נציג מטפל בפנייה נפרדת בלי תלות באחרים זו קבוצת עבודה. אם כולם תלויים זה בזה כדי לסגור חוויית לקוח אחת, זו עבודת צוות."
+  },
+  {
+    id: "team-building",
+    object: "Puzzle Board",
+    title: "בניית צוות ותפקידי צוות",
+    cue: "לוח פאזל",
+    topics: ["בלבין", "תפקידי צוות", "תקיעות צוותית", "השוואה בין מודלים"],
+    scenario: "בפגישה יש הרבה רעיונות, אבל אף החלטה לא הופכת לתוכנית עבודה. כולם מוכשרים, ועדיין התוצר תקוע.",
+    learn: ["Belbin - בלבין מדגיש תמהיל מאוזן של תפקידים משלימים.", "חוסר בתפקיד כמו Implementer - מבצע או Completer - סוגר קצוות עלול לתקוע צוות.", "לא מספיק לאסוף אנשים חזקים; צריך לבדוק מה חסר לצוות כיחידה."],
+    example: "בצוות מוצר יש Plant - רעיונות ו-Monitor-Evaluator - מנתח, אבל בלי Implementer - מבצע אין תרגום לתוכנית פעולה."
+  },
+  {
+    id: "development",
+    object: "Whiteboard",
+    title: "שלבי התפתחות צוות",
+    cue: "לוח ישיבות",
+    topics: ["טאקמן"],
+    scenario: "צוות חדש מתחיל להתווכח על סמכויות, סדרי עדיפויות ודרך עבודה. התחושה בחדר מתוחה.",
+    learn: ["Tuckman - טאקמן מתאר התפתחות דרך Forming, Storming, Norming, Performing ו-Adjourning.", "Storming - התמודדות/סערה אינו כישלון אלא שלב טבעי של בירור גבולות והשפעה.", "תפקיד המנהל משתנה לפי שלב ההתפתחות של הצוות."],
+    example: "ראש צוות שמזהה Storming - התמודדות/סערה לא מפרק את הצוות מיד, אלא מבהיר תפקידים, ציפיות וכללי החלטה."
+  },
+  {
+    id: "effective-teams",
+    object: "Light Bulb",
+    title: "צוותים אפקטיביים",
+    cue: "מנורת החלטות",
+    topics: ["3E", "לכידות וביטחון", "Groupthink", "לכידות וביקורת"],
+    scenario: "הצוות מלא מוטיבציה ורעיונות, אבל הרעיונות נשארים במצגות ולא הופכים לתוצר.",
+    learn: ["מודל 3E כולל Expertise - מומחיות, Engagement - מעורבות ו-Execution - ביצוע.", "Cohesion - לכידות מחברת את הצוות, אך Psychological Safety - ביטחון פסיכולוגי מאפשר גם ביקורת ולמידה.", "Groupthink - חשיבת קבוצה עלול להופיע כאשר הרצון להסכמה מדכא חלופות."],
+    example: "צוות שמסכים מהר מדי בלי לשאול שאלות נראה יעיל, אבל מנהל טוב בודק אם יש ביטחון להביע ספק."
+  },
+  {
+    id: "virtual-types",
+    object: "Laptop",
+    title: "סוגי צוותים וצוותים וירטואליים",
+    cue: "עמדת עבודה מרחוק",
+    topics: ["סוגי צוותים"],
+    scenario: "חברי צוות נמצאים בישראל, פולין והודו, עובדים בזום ובמסמכים משותפים, ומתאמים אזורי זמן.",
+    learn: ["Virtual Team - צוות וירטואלי מוגדר סביב עבודה מרחוק ותקשורת דיגיטלית.", "Project Team - צוות פרויקט מתאים ליעד מוגדר בזמן ובתקציב.", "Problem-Solving / Ad-hoc Team - צוות פתרון בעיה / אד-הוק מתאים למענה מהיר לבעיה לא צפויה."],
+    example: "תקלה חד-פעמית אצל לקוח תדרוש צוות אד-הוק; פיתוח מוצר לאורך חודשים מתאים יותר לצוות פרויקט או צוות פיתוח מוצרים חדשים."
+  },
+  {
+    id: "identity",
+    object: "Manager Badge",
+    title: "זהות, נורמות וייצוגים חברתיים",
+    cue: "תג מנהל",
+    topics: ["זהות חברתית", "יצירת זהות", "ייצוג חברתי", "ייצוגים חברתיים", "נורמות"],
+    scenario: "עובדת חדשה אומרת: כשאני בצוות הזה אני מרגישה שזה אומר עליי משהו מקצועי וערכי.",
+    learn: ["Social Identity - זהות חברתית היא תפיסת העצמי כחלק מקבוצה עם משמעות רגשית וערכית.", "Social Representation - ייצוג חברתי יוצר משמעות משותפת שמארגנת הבנה והתנהגות.", "Anchoring - עיגון ו-Objectification - החפצה עוזרים להפוך רעיון מופשט למובן משותף."],
+    example: "כשצוות מתאר את הערך שלו כ'מצפן החלטות', הוא הופך רעיון מופשט לדימוי מוחשי שמכוון פעולה."
+  },
+  {
+    id: "evaluation",
+    object: "Analytics Dashboard",
+    title: "אבחון והערכת צוות",
+    cue: "לוח אנליטיקה",
+    topics: ["ביילס", "האריסון", "תיאום צוותי", "סגנון מבחן"],
+    scenario: "מנהל רוצה להבין בזמן פגישה מי תורם למשימה, מי מחזיק את היחסים, ומה הצוות צריך לשפר.",
+    learn: ["Bales - ביילס בוחן התנהגות בזמן אמת: תרומה למשימה ותרומה ליחסים.", "Harrison - האריסון הופך ציפיות סמויות לגלויות דרך יותר / פחות / להמשיך.", "הערכה טובה מחברת בין תצפית, מושגים מהחומר ותרגול החלטות."],
+    example: "אם משתתף מביא נתונים זו תרומה למשימה; אם משתתפת מרגיעה מתח ונותנת מקום לאחרים זו תרומה ליחסים."
+  }
+];
 
 function topicClass(value, offset = 0) {
   const text = String(value || "");
@@ -738,8 +824,71 @@ function shuffle(items) {
 function updateScore() {
   const total = questions.length;
   const correct = [...state.answered.values()].filter(Boolean).length;
+  const answered = state.answered.size;
+  const answeredScore = answered ? Math.round((correct / answered) * 100) : 0;
+  const readiness = Math.round(((state.completedTopics.size / topicModules.length) * 45) + ((correct / total) * 55));
   score.textContent = `${correct} / ${total}`;
   scoreBar.style.width = `${total ? (correct / total) * 100 : 0}%`;
+  topicProgress.textContent = `${state.completedTopics.size} / ${topicModules.length}`;
+  readinessScore.textContent = `${readiness}%`;
+  quizAverage.textContent = `${answeredScore}%`;
+  examReadiness.textContent = readiness >= 85 ? "מוכן" : readiness >= 60 ? "מתקדם" : "בדרך";
+  decisionFeedback.textContent = answered
+    ? `${answered} שאלות נענו. ${answeredScore >= 80 ? "Excellent Decision - החלטות מצוינות." : "המשיכו לתרגל כדי לחזק מוכנות."}`
+    : "ענו על שאלות כדי לקבל מדד מוכנות.";
+}
+
+function moduleQuestions(module) {
+  const exactMatches = questions.filter((question) => module.topics.includes(question.topic));
+  return exactMatches.length ? exactMatches : questions.filter((question) =>
+    module.topics.some((topic) => question.topic.includes(topic) || topic.includes(question.topic))
+  );
+}
+
+function renderTopicObjects() {
+  topicObjects.innerHTML = "";
+  topicModules.forEach((module, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `desk-object ${topicClass(module.title, index)}`;
+    button.dataset.topicId = module.id;
+    button.innerHTML = `
+      <span class="object-icon" aria-hidden="true"></span>
+      <span class="object-meta">${module.object}</span>
+      <strong>${module.title}</strong>
+      <small>${module.cue}</small>
+    `;
+    button.addEventListener("click", () => renderActiveTopic(module.id));
+    topicObjects.append(button);
+  });
+}
+
+function renderActiveTopic(moduleId = topicModules[0].id) {
+  const module = topicModules.find((item) => item.id === moduleId) || topicModules[0];
+  document.querySelectorAll(".desk-object").forEach((button) => {
+    button.classList.toggle("active", button.dataset.topicId === module.id);
+  });
+  activeTopicTitle.textContent = module.title;
+  topicScenario.textContent = module.scenario;
+  topicExample.textContent = module.example;
+  topicLearn.innerHTML = module.learn.map((line) => `<div>${line}</div>`).join("");
+  markTopicComplete.dataset.topicId = module.id;
+  markTopicComplete.textContent = state.completedTopics.has(module.id) ? "Topic Completed - הושלם" : "סימון נושא כהושלם";
+
+  const selectedQuestions = moduleQuestions(module).slice(0, 3);
+  topicPractice.innerHTML = "";
+  selectedQuestions.forEach((question) => {
+    const item = document.createElement("details");
+    item.className = `practice-item ${topicClass(question.topic)}`;
+    const correctAnswer = question.options.find((option) => option.correct);
+    item.innerHTML = `
+      <summary>${question.question}</summary>
+      <p><strong>תשובה מומלצת:</strong> ${correctAnswer?.text || ""}</p>
+      <p>${question.explanation}</p>
+    `;
+    topicPractice.append(item);
+  });
+  updateScore();
 }
 
 function renderQuiz() {
@@ -824,6 +973,12 @@ function renderScenarios() {
   });
 }
 
+markTopicComplete.addEventListener("click", () => {
+  const topicId = markTopicComplete.dataset.topicId || topicModules[0].id;
+  state.completedTopics.add(topicId);
+  renderActiveTopic(topicId);
+});
+
 document.querySelector("#resetQuiz").addEventListener("click", () => {
   state.answered.clear();
   renderQuiz();
@@ -833,10 +988,8 @@ document.querySelector("#termSearch").addEventListener("input", (event) => {
   renderTerms(event.target.value);
 });
 
-document.querySelector("#questionCount").textContent = questions.length;
-document.querySelector("#termCount").textContent = terms.length;
-document.querySelector("#scenarioCount").textContent = scenarios.length;
-
+renderTopicObjects();
+renderActiveTopic();
 renderQuiz();
 renderTerms();
 renderScenarios();

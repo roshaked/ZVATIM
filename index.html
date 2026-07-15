@@ -9,44 +9,111 @@
 <body>
   <header class="topbar">
     <div>
-      <p class="eyebrow">קורס ניהול ופיתוח צוותים</p>
-      <h1>מרכז תרגול אינטראקטיבי</h1>
+      <p class="eyebrow">Team Management & Development</p>
+      <h1>מרכז פיקוד למנהל צוות</h1>
     </div>
-    <nav aria-label="ניווט ראשי">
-      <a href="#quiz">שאלות</a>
-      <a href="#terms">מושגים</a>
-      <a href="#scenarios">תרחישים</a>
-      <a href="#sources">חומר מקור</a>
-      <a href="materials.html">חומר מצגת</a>
+    <nav class="quick-actions" aria-label="ניווט מהיר">
+      <a href="#command">Command Center</a>
+      <a href="#topicWorkspace">למידה לפי נושא</a>
+      <a href="#quiz">Mini Exam</a>
+      <a href="#terms">Glossary</a>
+      <a href="materials.html">חומר מקור</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
+    <section id="command" class="hero command-hero">
       <div class="hero-copy">
-        <h2>לתרגל צוותים, זהות חברתית, סוגי צוותים ותפקידי צוות.</h2>
-        <p>האתר מבוסס רק על המצגות והדף לסטודנט שהועלו. כל מושג באנגלית מופיע עם פירוש בעברית, והשאלות מערבבות תשובות כך שאורך התשובה אינו רמז.</p>
+        <p class="eyebrow">Premium learning simulator</p>
+        <h2>ללמוד כאילו אתם מנהלים צוות אמיתי.</h2>
+        <p>האתר מבוסס רק על חומר הקורס. במקום רשימת פרקים רגילה, כל נושא נפתח דרך מצב ניהולי: תרחיש קצר, למידה ממוקדת, דוגמה מהעבודה, תרגול, ובדיקת מוכנות למבחן.</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#managerDesk">פתיחת שולחן המנהל</a>
+          <a class="secondary-action" href="#quiz">מעבר למבחן תרגול</a>
+        </div>
       </div>
-      <div class="stats" aria-label="נתוני התרגול">
-        <span><strong id="questionCount">0</strong> שאלות</span>
-        <span><strong id="termCount">0</strong> מושגים</span>
-        <span><strong id="scenarioCount">0</strong> תרחישים</span>
+
+      <aside class="manager-dashboard" aria-label="דאשבורד מוכנות">
+        <span class="dash-label">Manager Dashboard</span>
+        <div class="dash-grid">
+          <div>
+            <strong id="topicProgress">0 / 0</strong>
+            <span>נושאים שהושלמו</span>
+          </div>
+          <div>
+            <strong id="readinessScore">0%</strong>
+            <span>מוכנות כללית</span>
+          </div>
+          <div>
+            <strong id="quizAverage">0%</strong>
+            <span>ממוצע תשובות</span>
+          </div>
+          <div>
+            <strong id="examReadiness">בדרך</strong>
+            <span>מצב מבחן</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="managerDesk" class="workspace-shell">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Team Manager Command Center</p>
+          <h2>בחרו אובייקט על שולחן העבודה</h2>
+        </div>
+        <p>כל אובייקט פותח נושא למידה עם אותו מבנה קבוע וברור.</p>
+      </div>
+      <div id="topicObjects" class="desk-grid" aria-label="נושאי למידה"></div>
+    </section>
+
+    <section id="topicWorkspace" class="topic-workspace" aria-live="polite">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Learning Mission</p>
+          <h2 id="activeTopicTitle">משימת ניהול צוות</h2>
+        </div>
+        <button id="markTopicComplete" type="button">סימון נושא כהושלם</button>
+      </div>
+
+      <div class="mission-layout">
+        <article class="mission-card scenario-intro">
+          <span class="mission-step">01</span>
+          <h3>Scenario Introduction</h3>
+          <p id="topicScenario"></p>
+        </article>
+        <article class="mission-card">
+          <span class="mission-step">02</span>
+          <h3>Learn</h3>
+          <div id="topicLearn" class="learning-cards"></div>
+        </article>
+        <article class="mission-card">
+          <span class="mission-step">03</span>
+          <h3>Real World Example</h3>
+          <p id="topicExample"></p>
+        </article>
+        <article class="mission-card practice-card">
+          <span class="mission-step">04</span>
+          <h3>Practice</h3>
+          <div id="topicPractice" class="mini-practice"></div>
+        </article>
       </div>
     </section>
 
-    <section id="quiz" class="panel">
+    <section id="quiz" class="panel exam-panel">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Multiple Choice - שאלות אמריקאיות</p>
-          <h2>תרגול שאלות</h2>
+          <p class="eyebrow">Mini Exam - שאלות אמריקאיות</p>
+          <h2>מבחן תרגול מעורב</h2>
         </div>
         <button id="resetQuiz" type="button">איפוס תרגול</button>
       </div>
       <div class="quiz-layout">
         <aside class="progress-box">
-          <span>התקדמות</span>
+          <span>ביצועי החלטות</span>
           <strong id="score">0 / 0</strong>
           <div class="meter"><span id="scoreBar"></span></div>
+          <small id="decisionFeedback">ענו על שאלות כדי לקבל מדד מוכנות.</small>
         </aside>
         <div id="quizList" class="stack"></div>
       </div>
@@ -61,6 +128,16 @@
         <input id="termSearch" type="search" placeholder="חיפוש מושג בעברית או באנגלית">
       </div>
       <div id="termList" class="term-grid"></div>
+    </section>
+
+    <section id="scenarios" class="panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Scenario Practice - תרגול תרחישים</p>
+          <h2>מה היית עושה כמנהל?</h2>
+        </div>
+      </div>
+      <div id="scenarioList" class="stack"></div>
     </section>
 
     <section id="sources" class="panel">
@@ -79,16 +156,6 @@
         <a href="materials.html#tuckman">מודל טאקמן</a>
         <a href="materials.html#belbin">תפקידי צוות</a>
       </div>
-    </section>
-
-    <section id="scenarios" class="panel">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Scenario Practice - תרגול תרחישים</p>
-          <h2>מה היית עושה?</h2>
-        </div>
-      </div>
-      <div id="scenarioList" class="stack"></div>
     </section>
 
     <section class="panel compact">
