@@ -31,6 +31,7 @@ html {
 
 body {
   margin: 0;
+  padding-bottom: 92px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(247, 248, 251, 0.96)),
     linear-gradient(90deg, rgba(17, 24, 39, 0.035) 1px, transparent 1px),
@@ -76,6 +77,26 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.quick-actions {
+  position: fixed;
+  right: 50%;
+  bottom: 16px;
+  z-index: 40;
+  max-width: min(860px, calc(100% - 28px));
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(230, 234, 240, 0.96);
+  border-radius: 8px;
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(18px);
+  transform: translateX(50%);
+}
+
+.quick-actions a {
+  background: rgba(255, 255, 255, 0.96);
+  white-space: nowrap;
 }
 
 button,
@@ -883,11 +904,23 @@ footer {
   }
 
   .quick-actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    right: 11px;
+    bottom: 10px;
+    left: 11px;
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: none;
+    overflow-x: auto;
+    transform: none;
+    scrollbar-width: none;
+  }
+
+  .quick-actions::-webkit-scrollbar {
+    display: none;
   }
 
   nav a {
+    flex: 0 0 auto;
     justify-content: center;
     padding-inline: 10px;
   }
@@ -911,7 +944,6 @@ footer {
 
 @media (max-width: 520px) {
   .desk-grid,
-  .quick-actions,
   .hero-actions {
     grid-template-columns: 1fr;
   }
