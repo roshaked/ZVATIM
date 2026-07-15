@@ -722,6 +722,12 @@ const state = {
   answered: new Map()
 };
 
+function topicClass(value, offset = 0) {
+  const text = String(value || "");
+  const hash = [...text].reduce((sum, char) => sum + char.codePointAt(0), offset);
+  return `topic-${(hash % 8) + 1}`;
+}
+
 function shuffle(items) {
   return [...items]
     .map((item) => ({ item, sort: Math.random() }))
@@ -740,7 +746,7 @@ function renderQuiz() {
   quizList.innerHTML = "";
   questions.forEach((item, index) => {
     const card = document.createElement("article");
-    card.className = "card question-card";
+    card.className = `card question-card ${topicClass(item.topic)}`;
     card.innerHTML = `
       <span class="tag">${item.topic}</span>
       <h3>${index + 1}. ${item.question}</h3>
@@ -780,7 +786,7 @@ function renderTerms(filter = "") {
     .filter((term) => `${term.en} ${term.he} ${term.note}`.toLowerCase().includes(query))
     .forEach((term) => {
       const card = document.createElement("article");
-      card.className = "card term-card";
+      card.className = `card term-card ${topicClass(term.sourceNote || term.en)}`;
       card.innerHTML = `
         <div>
           <h3><span lang="en">${term.en}</span></h3>
@@ -796,9 +802,9 @@ function renderTerms(filter = "") {
 
 function renderScenarios() {
   scenarioList.innerHTML = "";
-  scenarios.forEach((scenario) => {
+  scenarios.forEach((scenario, index) => {
     const card = document.createElement("article");
-    card.className = "card scenario-card";
+    card.className = `card scenario-card ${topicClass(scenario.title, index)}`;
     card.innerHTML = `
       <h3>${scenario.title}</h3>
       <p>${scenario.text}</p>
