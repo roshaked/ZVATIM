@@ -137,10 +137,8 @@ a {
 
 .global-result {
   display: grid;
-  gap: 4px;
+  gap: 8px;
   padding: 10px 12px;
-  color: var(--ink);
-  text-decoration: none;
   background: #fff;
   border: 1px solid #edf1f7;
   border-radius: 10px;
@@ -149,6 +147,13 @@ a {
 .global-result:hover {
   border-color: #cddafe;
   transform: translateY(-1px);
+}
+
+.global-result-main {
+  display: grid;
+  gap: 4px;
+  color: var(--ink);
+  text-decoration: none;
 }
 
 .global-result span {
@@ -169,6 +174,22 @@ a {
 .global-result small {
   color: var(--muted);
   font-weight: 600;
+}
+
+.global-source-link {
+  justify-self: start;
+  padding: 6px 10px;
+  color: #1d4ed8;
+  text-decoration: none;
+  background: #eef4ff;
+  border: 1px solid #d7e2f4;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.global-source-link:hover {
+  background: #e0ebff;
 }
 
 .quick-actions,

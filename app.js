@@ -1060,26 +1060,67 @@ function normalizeSearch(value) {
   return String(value || "").trim().toLowerCase();
 }
 
+function sourceForTopic(topic) {
+  const value = normalizeSearch(topic);
+  const directSources = {
+    "עולם העבודה המודרני": "materials.html#modern-work",
+    "תנאים לעבודת צוות": "materials.html#team-excellence",
+    "פרמטרים להשוואת צוותים": "materials.html#team-comparison",
+    "צרכים פסיכולוגיים": "materials.html#psychological-needs",
+    "עזיבה רגשית": "materials.html#psychological-needs",
+    "תקיעות צוותית": "materials.html#stuck-team",
+    "חוק הפיצה": "materials.html#belbin",
+    "לכידות וביקורת": "materials.html#psychological-safety",
+    "לכידות וביטחון": "materials.html#psychological-safety",
+    "תפקידי צוות": "materials.html#belbin",
+    "השוואה בין מודלים": "materials.html#bales",
+    "סגנון מבחן": "materials.html#exam-style"
+  };
+
+  if (directSources[topic]) return directSources[topic];
+
+  const match = terms.find((term) => {
+    const en = normalizeSearch(term.en);
+    const he = normalizeSearch(term.he);
+    return value === en || value === he || value.includes(he) || he.includes(value) || value.includes(en);
+  });
+
+  return match?.source || "";
+}
+
+function sourceForText(text) {
+  const value = normalizeSearch(text);
+  const match = terms.find((term) => {
+    const en = normalizeSearch(term.en);
+    const he = normalizeSearch(term.he);
+    return value.includes(en) || value.includes(he);
+  });
+  return match?.source || "";
+}
+
 function globalSearchIndex() {
   const termResults = terms.map((term) => ({
     type: "מושג",
     title: `${term.he} / ${term.en}`,
     text: `${term.note} ${term.sourceNote}`,
-    href: term.source
+    href: term.source,
+    sourceHref: term.source
   }));
 
   const questionResults = questions.map((item) => ({
     type: "שאלה",
     title: item.question,
     text: `${item.topic} ${item.options.map((option) => option.text).join(" ")} ${item.explanation}`,
-    href: "#quiz"
+    href: "#quiz",
+    sourceHref: sourceForTopic(item.topic) || sourceForText(`${item.question} ${item.explanation}`)
   }));
 
   const scenarioResults = scenarios.map((scenario) => ({
     type: "תרחיש",
     title: scenario.title,
     text: `${scenario.text} ${scenario.best} ${scenario.why}`,
-    href: "#scenarios"
+    href: "#scenarios",
+    sourceHref: sourceForText(`${scenario.title} ${scenario.text} ${scenario.best} ${scenario.why}`)
   }));
 
   const moduleResults = topicModules.map((module) => ({
@@ -1087,6 +1128,7 @@ function globalSearchIndex() {
     title: module.title,
     text: `${module.topics.join(" ")} ${module.scenario} ${module.learn.map((item) => item.text).join(" ")} ${module.example}`,
     href: "#topicWorkspace",
+    sourceHref: module.learn.find((item) => item.source)?.source || sourceForTopic(module.topics[0]),
     topicId: module.id
   }));
 
@@ -1120,16 +1162,17 @@ function renderGlobalSearch(filter = "") {
   }
 
   results.forEach((item) => {
-    const link = document.createElement("a");
-    link.className = "global-result";
-    link.href = item.href;
-    if (item.topicId) link.dataset.topicId = item.topicId;
-    link.innerHTML = `
-      <span>${item.type}</span>
-      <strong>${item.title}</strong>
-      <small>${item.text.slice(0, 180)}${item.text.length > 180 ? "..." : ""}</small>
+    const card = document.createElement("article");
+    card.className = "global-result";
+    card.innerHTML = `
+      <a class="global-result-main" href="${item.href}" ${item.topicId ? `data-topic-id="${item.topicId}"` : ""}>
+        <span>${item.type}</span>
+        <strong>${item.title}</strong>
+        <small>${item.text.slice(0, 180)}${item.text.length > 180 ? "..." : ""}</small>
+      </a>
+      ${item.sourceHref ? `<a class="global-source-link" href="${item.sourceHref}">פתיחה בחומר הלימוד</a>` : ""}
     `;
-    globalSearchResults.append(link);
+    globalSearchResults.append(card);
   });
 
   globalSearchResults.hidden = false;
@@ -1322,10 +1365,10 @@ clearGlobalSearch.addEventListener("click", () => {
 });
 
 globalSearchResults.addEventListener("click", (event) => {
-  const result = event.target.closest(".global-result");
-  if (!result) return;
-  if (result.dataset.topicId) {
-    renderActiveTopic(result.dataset.topicId);
+  const link = event.target.closest("a");
+  if (!link) return;
+  if (link.dataset.topicId) {
+    renderActiveTopic(link.dataset.topicId);
   }
   globalSearchResults.hidden = true;
 });
