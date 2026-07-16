@@ -2,6 +2,11 @@ const slidePreviewMap = {
   team: [
     { src: "slide-previews/team-03.webp", label: "זהות חברתית, שקופית 3" },
     { src: "slide-previews/definitions-01.webp", label: "הגדרות, עמוד 1" },
+    { src: "slide-previews/lesson1-notes-01.webp", label: "שיעור 1, סיכום כתב יד" },
+  ],
+  "modern-work": [
+    { src: "slide-previews/lesson1-notes-01.webp", label: "שיעור 1, סיכום כתב יד" },
+    { src: "slide-previews/notebook-summary-01.webp", label: "סיכום נוטבוק, עמוד 1" },
   ],
   "group-vs-team": [
     { src: "slide-previews/group-vs-team-02.webp", label: "זהות חברתית, שקופית 2" },
