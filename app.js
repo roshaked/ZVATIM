@@ -912,6 +912,9 @@ const scenarios = [
 const quizList = document.querySelector("#quizList");
 const termList = document.querySelector("#termList");
 const scenarioList = document.querySelector("#scenarioList");
+const globalSearch = document.querySelector("#globalSearch");
+const clearGlobalSearch = document.querySelector("#clearGlobalSearch");
+const globalSearchResults = document.querySelector("#globalSearchResults");
 const score = document.querySelector("#score");
 const scoreBar = document.querySelector("#scoreBar");
 const decisionFeedback = document.querySelector("#decisionFeedback");
@@ -1051,6 +1054,85 @@ function shuffle(items) {
     .map((item) => ({ item, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ item }) => item);
+}
+
+function normalizeSearch(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function globalSearchIndex() {
+  const termResults = terms.map((term) => ({
+    type: "מושג",
+    title: `${term.he} / ${term.en}`,
+    text: `${term.note} ${term.sourceNote}`,
+    href: term.source
+  }));
+
+  const questionResults = questions.map((item) => ({
+    type: "שאלה",
+    title: item.question,
+    text: `${item.topic} ${item.options.map((option) => option.text).join(" ")} ${item.explanation}`,
+    href: "#quiz"
+  }));
+
+  const scenarioResults = scenarios.map((scenario) => ({
+    type: "תרחיש",
+    title: scenario.title,
+    text: `${scenario.text} ${scenario.best} ${scenario.why}`,
+    href: "#scenarios"
+  }));
+
+  const moduleResults = topicModules.map((module) => ({
+    type: "נושא למידה",
+    title: module.title,
+    text: `${module.topics.join(" ")} ${module.scenario} ${module.learn.map((item) => item.text).join(" ")} ${module.example}`,
+    href: "#topicWorkspace",
+    topicId: module.id
+  }));
+
+  return [...termResults, ...moduleResults, ...questionResults, ...scenarioResults];
+}
+
+function renderGlobalSearch(filter = "") {
+  const query = normalizeSearch(filter);
+  globalSearchResults.innerHTML = "";
+
+  if (query.length < 2) {
+    globalSearchResults.hidden = true;
+    return;
+  }
+
+  const results = globalSearchIndex()
+    .map((item) => ({
+      ...item,
+      haystack: normalizeSearch(`${item.type} ${item.title} ${item.text}`)
+    }))
+    .filter((item) => item.haystack.includes(query))
+    .slice(0, 10);
+
+  if (!results.length) {
+    const empty = document.createElement("div");
+    empty.className = "global-result";
+    empty.innerHTML = "<strong>לא נמצאו תוצאות</strong><small>נסו מושג אחר בעברית או באנגלית.</small>";
+    globalSearchResults.append(empty);
+    globalSearchResults.hidden = false;
+    return;
+  }
+
+  results.forEach((item) => {
+    const link = document.createElement("a");
+    link.className = "global-result";
+    link.href = item.href;
+    if (item.topicId) link.dataset.topicId = item.topicId;
+    link.innerHTML = `
+      <span>${item.type}</span>
+      <strong>${item.title}</strong>
+      <small>${item.text.slice(0, 180)}${item.text.length > 180 ? "..." : ""}</small>
+    `;
+    globalSearchResults.append(link);
+  });
+
+  globalSearchResults.hidden = false;
 }
 
 function updateScore() {
@@ -1227,6 +1309,31 @@ document.querySelector("#resetQuiz").addEventListener("click", () => {
 
 document.querySelector("#termSearch").addEventListener("input", (event) => {
   renderTerms(event.target.value);
+});
+
+globalSearch.addEventListener("input", (event) => {
+  renderGlobalSearch(event.target.value);
+});
+
+clearGlobalSearch.addEventListener("click", () => {
+  globalSearch.value = "";
+  renderGlobalSearch("");
+  globalSearch.focus();
+});
+
+globalSearchResults.addEventListener("click", (event) => {
+  const result = event.target.closest(".global-result");
+  if (!result) return;
+  if (result.dataset.topicId) {
+    renderActiveTopic(result.dataset.topicId);
+  }
+  globalSearchResults.hidden = true;
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".global-search")) {
+    globalSearchResults.hidden = true;
+  }
 });
 
 renderTopicObjects();
