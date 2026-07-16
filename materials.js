@@ -1,6 +1,7 @@
 const slidePreviewMap = {
   team: [
     { src: "slide-previews/team-03.webp", label: "זהות חברתית, שקופית 3" },
+    { src: "slide-previews/definitions-01.webp", label: "הגדרות, עמוד 1" },
   ],
   "group-vs-team": [
     { src: "slide-previews/group-vs-team-02.webp", label: "זהות חברתית, שקופית 2" },
@@ -14,6 +15,24 @@ const slidePreviewMap = {
   "team-types": [
     { src: "slide-previews/team-types-05.webp", label: "זהות חברתית, שקופית 5" },
     { src: "slide-previews/team-types-map.webp", label: "מפת סוגי צוותים" },
+    { src: "slide-previews/definitions-02.webp", label: "הגדרות, עמוד 2" },
+    { src: "slide-previews/definitions-03.webp", label: "הגדרות, עמוד 3" },
+  ],
+  "team-excellence": [
+    { src: "slide-previews/definitions-01.webp", label: "הגדרות, עמוד 1" },
+    { src: "slide-previews/definitions-02.webp", label: "הגדרות, עמוד 2" },
+  ],
+  "team-comparison": [
+    { src: "slide-previews/definitions-02.webp", label: "הגדרות, עמוד 2" },
+    { src: "slide-previews/definitions-03.webp", label: "הגדרות, עמוד 3" },
+  ],
+  "psychological-needs": [
+    { src: "slide-previews/notebook-summary-01.webp", label: "סיכום נוטבוק, עמוד 1" },
+    { src: "slide-previews/notebook-summary-02.webp", label: "סיכום נוטבוק, עמוד 2" },
+  ],
+  "group-dynamics": [
+    { src: "slide-previews/notebook-summary-02.webp", label: "סיכום נוטבוק, עמוד 2" },
+    { src: "slide-previews/notebook-summary-03.webp", label: "סיכום נוטבוק, עמוד 3" },
   ],
   "social-identity": [
     { src: "slide-previews/social-identity-01.webp", label: "זהות חברתית, שקופית 1" },
@@ -42,12 +61,15 @@ const slidePreviewMap = {
   ],
   tuckman: [
     { src: "slide-previews/exam-prep-05.webp", label: "הכנה למבחן, שקופית 5" },
+    { src: "slide-previews/notebook-summary-37.webp", label: "סיכום נוטבוק, עמוד 37" },
   ],
   belbin: [
     { src: "slide-previews/belbin-05.webp", label: "תפקידים בצוות, שקופית 5" },
     { src: "slide-previews/belbin-06.webp", label: "תפקידים בצוות, שקופית 6" },
     { src: "slide-previews/belbin-07.webp", label: "תפקידים בצוות, שקופית 7" },
     { src: "slide-previews/belbin-08.webp", label: "תפקידים בצוות, שקופית 8" },
+    { src: "slide-previews/notebook-summary-32.webp", label: "סיכום נוטבוק, עמוד 32" },
+    { src: "slide-previews/notebook-summary-34.webp", label: "סיכום נוטבוק, עמוד 34" },
   ],
   bales: [
     { src: "slide-previews/bales-09.webp", label: "תפקידים בצוות, שקופית 9" },
@@ -59,6 +81,14 @@ const slidePreviewMap = {
   ],
   "stuck-team": [
     { src: "slide-previews/stuck-team-15.webp", label: "תפקידים בצוות, שקופית 15" },
+    { src: "slide-previews/notebook-summary-37.webp", label: "סיכום נוטבוק, עמוד 37" },
+  ],
+  "positive-social-identity": [
+    { src: "slide-previews/notebook-summary-38.webp", label: "סיכום נוטבוק, עמוד 38" },
+  ],
+  "norm-relevance": [
+    { src: "slide-previews/notebook-summary-38.webp", label: "סיכום נוטבוק, עמוד 38" },
+    { src: "slide-previews/notebook-summary-39.webp", label: "סיכום נוטבוק, עמוד 39" },
   ],
 };
 
