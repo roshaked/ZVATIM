@@ -30,6 +30,17 @@ const slidePreviewMap = {
   "team-comparison": [
     { src: "slide-previews/definitions-02.webp", label: "הגדרות, עמוד 2" },
     { src: "slide-previews/definitions-03.webp", label: "הגדרות, עמוד 3" },
+    { src: "slide-previews/completion-summary-03.webp", label: "השלמה מקיפה, עמוד 3" },
+    { src: "slide-previews/completion-summary-04.webp", label: "השלמה מקיפה, עמוד 4" },
+  ],
+  "advice-team": [
+    { src: "slide-previews/completion-summary-03.webp", label: "השלמה מקיפה, עמוד 3" },
+    { src: "slide-previews/completion-summary-07.webp", label: "השלמה מקיפה, עמוד 7" },
+  ],
+  "fish-empowerment": [
+    { src: "slide-previews/completion-summary-04.webp", label: "השלמה מקיפה, עמוד 4" },
+    { src: "slide-previews/completion-summary-06.webp", label: "השלמה מקיפה, עמוד 6" },
+    { src: "slide-previews/completion-summary-07.webp", label: "השלמה מקיפה, עמוד 7" },
   ],
   "psychological-needs": [
     { src: "slide-previews/notebook-summary-01.webp", label: "סיכום נוטבוק, עמוד 1" },
@@ -94,6 +105,10 @@ const slidePreviewMap = {
   "norm-relevance": [
     { src: "slide-previews/notebook-summary-38.webp", label: "סיכום נוטבוק, עמוד 38" },
     { src: "slide-previews/notebook-summary-39.webp", label: "סיכום נוטבוק, עמוד 39" },
+    { src: "slide-previews/completion-summary-08.webp", label: "השלמה מקיפה, עמוד 8" },
+  ],
+  "schein-culture": [
+    { src: "slide-previews/completion-summary-08.webp", label: "השלמה מקיפה, עמוד 8" },
   ],
 };
 
