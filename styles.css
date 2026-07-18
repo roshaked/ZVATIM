@@ -431,6 +431,70 @@ footer {
   gap: 12px;
 }
 
+.infographic-panel {
+  scroll-margin-top: 120px;
+}
+
+.infographic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.infographic-card {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e3e9f2;
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.infographic-card:hover {
+  border-color: #c7d7fe;
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.infographic-card.featured {
+  grid-column: 1 / -1;
+}
+
+.infographic-card a {
+  display: block;
+  overflow: hidden;
+  background: #f8fafc;
+  border: 1px solid #edf1f7;
+  border-radius: 8px;
+}
+
+.infographic-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2752 / 1536;
+  object-fit: contain;
+}
+
+.infographic-card figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 0 4px 2px;
+}
+
+.infographic-card figcaption strong {
+  font-size: 1rem;
+}
+
+.infographic-card figcaption span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
 .desk-object {
   --topic: var(--accent);
   --topic-soft: var(--accent-soft);
@@ -1107,7 +1171,8 @@ footer {
 
   .command-hero,
   .quiz-layout,
-  .mission-layout {
+  .mission-layout,
+  .infographic-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1166,6 +1231,14 @@ footer {
 
   .desk-object {
     min-height: 170px;
+  }
+
+  .infographic-card {
+    padding: 9px;
+  }
+
+  .infographic-card figcaption span {
+    font-size: 0.86rem;
   }
 
   .source-heading {
