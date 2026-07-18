@@ -16,6 +16,7 @@
       <a href="#command">מרכז פיקוד</a>
       <a href="#topicWorkspace">למידה לפי נושא</a>
       <a href="#quiz">מבחן קצר</a>
+      <a href="#extraQuiz">מבחן קצר נוסף</a>
       <a href="#terms">מילון מושגים</a>
       <a href="materials.html">חומר מקור</a>
     </nav>
@@ -127,6 +128,25 @@
       </div>
     </section>
 
+    <section id="extraQuiz" class="panel exam-panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">מבחן קצר נוסף - שאלות אמריקאיות</p>
+          <h2>מבחן קצר נוסף</h2>
+        </div>
+        <button id="resetExtraQuiz" type="button">איפוס תרגול</button>
+      </div>
+      <div class="quiz-layout">
+        <aside class="progress-box">
+          <span>ביצועי החלטות</span>
+          <strong id="extraScore">0 / 0</strong>
+          <div class="meter"><span id="extraScoreBar"></span></div>
+          <small id="extraDecisionFeedback">ענו על שאלות כדי לקבל מדד מוכנות.</small>
+        </aside>
+        <div id="extraQuizList" class="stack"></div>
+      </div>
+    </section>
+
     <section id="terms" class="panel">
       <div class="section-head">
         <div>
@@ -184,5 +204,6 @@
   </footer>
 
   <script src="app.js"></script>
+  <script src="extra-exam.js"></script>
 </body>
 </html>
